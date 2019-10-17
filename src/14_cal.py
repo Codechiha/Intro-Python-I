@@ -22,3 +22,30 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+import time
+
+# Still need to include some of the rules at the top regarding if 1 argument assume it is month and print
+# Calendar of that month
+
+valid_months = [
+  'january', 'february', 'march', 
+  'april', 'may', 'june', 'july', 
+  'august', 'september', 'october', 
+  'november', 'december', 
+  'jan', 'feb', 'mar', 'apr', 'jun', 
+  'jul', 'aug', 'sep', 'oct', 'nov', 'dec']
+
+try:
+  month, year = input("Enter a month and a year(1900 - 2020): ").split()
+except: 
+  print("Pleae enter a valid Month and Year(1900 - 2020) \ne.g.: February 2020")
+  print("The current Month and Year:", datetime.today().strftime("%B"), datetime.today().strftime("%Y"))
+else: 
+  if (len(month) > 0) and (1900 <= int(year) <= 2020):
+      if month.lower() in valid_months:
+        print('You entered', month.capitalize(), year)
+      else: 
+        print('You entered an invalid month')
+  else:
+    print("Pleae enter a valid Month and Year(1900 - 2020) \ne.g.: February 2020")
+    print("The current Month and Year:", datetime.today().strftime("%B"), datetime.today().strftime("%Y"))
